@@ -1,0 +1,225 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Askeri RP Paneli</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0d0d0d;
+      color: white;
+    }
+
+    header {
+      background: #111;
+      padding: 20px;
+      text-align: center;
+      border-bottom: 2px solid gold;
+    }
+
+    header h1 {
+      color: gold;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 10px;
+      background: #1a1a1a;
+    }
+
+    nav button {
+      background: gold;
+      color: #000;
+      border: none;
+      padding: 10px 20px;
+      font-weight: bold;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    section {
+      display: none;
+      padding: 20px;
+    }
+
+    section.active {
+      display: block;
+    }
+
+    .task-list, .market-list {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 10px;
+      padding: 20px;
+      margin: 10px auto;
+      max-width: 600px;
+    }
+
+    input, textarea, select, button {
+      width: 100%;
+      margin-top: 10px;
+      padding: 10px;
+      border: none;
+      border-radius: 8px;
+    }
+
+    .market-item {
+      background: #222;
+      border: 1px solid gold;
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+
+    .market-item button {
+      background: linear-gradient(to right, #d4af37, #ffcf00);
+      color: #000;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    footer {
+      margin-top: 30px;
+      text-align: center;
+      color: gold;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Askeri RP Paneli - Görev Takibi ve Market</h1>
+</header>
+
+<nav><button onclick="switchSection('basvuru')">📌 Başvuru</button><button onclick="switchSection('sikayet')">📢 Şikayet</button><button onclick="switchSection('terfi')">🎖️ Terfi</button><button onclick="switchSection('etkinlik')">🎉 Etkinlik</button>
+  <button onclick="switchSection('gorev')">🎯 Görev Takibi</button>
+  <button onclick="switchSection('market')">🛒 RP Market</button>
+</nav>
+
+<section id="gorev" class="active">
+  <div class="task-list">
+    <h2>📝 Yeni Görev Girişi</h2>
+    <form>
+      <input type="text" placeholder="Discord Kullanıcı Adınız" required>
+      <input type="text" placeholder="Yaptığınız Görev (Devriye, Operasyon...)" required>
+      <input type="date" required>
+      <textarea placeholder="Açıklama (isteğe bağlı)"></textarea>
+      <button type="submit">Görevi Kaydet</button>
+    </form>
+  </div>
+</section>
+
+<section id="market">
+  <div class="market-list">
+    <h2>🎖️ Rütbe Satın Al</h2>
+
+    <div class="market-item">
+      <p><strong>Rütbe:</strong> Kıdemli Memur</p>
+      <p><strong>Fiyat:</strong> 50 RP Puanı</p>
+      <a href="https://discord.gg/WcrfaD6w" target="_blank">
+        <button>Satın Al (Discord)</button>
+      </a>
+    </div>
+
+    <div class="market-item">
+      <p><strong>Rütbe:</strong> Komiser Yardımcısı</p>
+      <p><strong>Fiyat:</strong> 100 RP Puanı</p>
+      <a href="https://discord.gg/WcrfaD6w" target="_blank">
+        <button>Satın Al (Discord)</button>
+      </a>
+    </div>
+
+    <div class="market-item">
+      <p><strong>Rütbe:</strong> Başkomiser</p>
+      <p><strong>Fiyat:</strong> 150 RP Puanı</p>
+      <a href="https://discord.gg/WcrfaD6w" target="_blank">
+        <button>Satın Al (Discord)</button>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  Askeri RP Sistemi &copy; 2025 | Owner: Muhammet Karataş
+</footer>
+
+<script>
+function switchSection(id) {
+  document.querySelectorAll("section").forEach(sec => sec.classList.remove("active"));
+  document.getElementById(id).classList.add("active");
+}
+</script>
+
+
+<section id="basvuru">
+  <div class="task-list">
+    <h2>📌 Askeri Birlik Başvuru Formu</h2>
+    <form>
+      <input type="text" placeholder="Adınız Soyadınız (RP)" required>
+      <input type="text" placeholder="Discord Adınız" required>
+      <select required>
+        <option value="">Branş Seçin</option>
+        <option>Komando</option>
+        <option>Tanker</option>
+        <option>İstihbarat</option>
+        <option>Sinyal</option>
+      </select>
+      <textarea placeholder="Neden katılmak istiyorsunuz?" required></textarea>
+      <button type="submit">Başvur</button>
+    </form>
+  </div>
+</section>
+
+<section id="sikayet">
+  <div class="task-list">
+    <h2>📢 Şikayet / Öneri Formu</h2>
+    <form>
+      <input type="text" placeholder="Discord Adınız" required>
+      <select required>
+        <option value="">Kategori</option>
+        <option>Şikayet</option>
+        <option>Öneri</option>
+        <option>Hata Bildirimi</option>
+      </select>
+      <textarea placeholder="Detaylı açıklama..." required></textarea>
+      <button type="submit">Gönder</button>
+    </form>
+  </div>
+</section>
+
+<section id="terfi">
+  <div class="task-list">
+    <h2>🎖️ Terfi Başvurusu</h2>
+    <form>
+      <input type="text" placeholder="Mevcut Rütbeniz" required>
+      <input type="text" placeholder="İstediğiniz Yeni Rütbe" required>
+      <textarea placeholder="Neden terfi istiyorsunuz?" required></textarea>
+      <button type="submit">Başvur</button>
+    </form>
+  </div>
+</section>
+
+<section id="etkinlik">
+  <div class="task-list">
+    <h2>🎉 Etkinlik Katılım Formu</h2>
+    <form>
+      <input type="text" placeholder="Etkinlik Adı" required>
+      <input type="date" required>
+      <select required>
+        <option value="">Katılacak mısınız?</option>
+        <option>Evet</option>
+        <option>Hayır</option>
+      </select>
+      <button type="submit">Katıl</button>
+    </form>
+  </div>
+</section>
+
+</body>
+</html>
